@@ -7,5 +7,6 @@ baptiste@brinon.eu
 
 Language : English
 Case:
+Class
 MethodName
 memberName

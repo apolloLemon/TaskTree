@@ -30,6 +30,6 @@ public:
 
 };
 
-class TaskManager {
-	
+class TaskManager { // reminder: Apply singleton's design pattern
+
 };
