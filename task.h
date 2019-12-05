@@ -1,5 +1,6 @@
+#pragma once
 #include <string>
-#include <list>
+#include <vector>
 
 class Actor {
 
@@ -9,27 +10,29 @@ class Task {
 
 	bool done;
 	std::string taskName;
-	std::list<Task> dependencies;
+	std::vector<Task> dependencies;
 
 
 public:
-	Task(std::string);
-	Task(std::string, std::list<Task>);
+	Task(std::string const & s);
+	//Task(std::string, std::vector<Task>);
 
-	//get
-	bool Done();
-	bool Ready();
+	//getters
+	bool IsDone() const{return done;}
+	bool IsReady() const;
+	//std::list<Task> Dependencies();
 
-	std::list<Task> ReadyTasks();
-	std::list<Task> Dependencies();
+	//settters
+	void SetDone(){done=true;}
+	void AddDependency(Task const & t);
+	//void RemoveDependency(Task);
 
-	//set
-	void SetDone();
-	void AddDependency(Task);
-	void RemoveDependency(Task);
+	//operators
+
 
 };
 
 class TaskManager { // reminder: Apply singleton's design pattern
-
+ public:
+	std::vector<Task> ReadyTasks()const;
 };
